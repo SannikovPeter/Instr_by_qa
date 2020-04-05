@@ -13,8 +13,13 @@ public class MainPageSteps extends BasePageSteps {
         mainPage = PageFactory.initElements(driver, MainPage.class);
     }
 
-    public LoginPageSteps getLoginPageSteps(){
+    public LoginPageSteps getLoginPageSteps() {
         mainPage.getLoginButton().click();
         return new LoginPageSteps(driver);
+    }
+
+    public RegistrationPageSteps getRegistrationPageSteps() {
+        mainPage.getRegistrationButton().click();
+        return new RegistrationPageSteps(driver);
     }
 }

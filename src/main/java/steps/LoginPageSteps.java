@@ -2,7 +2,6 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import pageObjects.LoginPage;
 
 public class LoginPageSteps extends BasePageSteps {
@@ -21,12 +20,12 @@ public class LoginPageSteps extends BasePageSteps {
     }
 
     public UserProfileSteps successLogin(String name, String password) {
-        login(name,password);
+        login(name, password);
         return new UserProfileSteps(driver);
     }
 
-    public LoginPageSteps unsuccessfulLogin(String name, String password){
-        login(name,password);
+    public LoginPageSteps unsuccessfulLogin(String name, String password) {
+        login(name, password);
         return new LoginPageSteps(driver);
     }
 

@@ -11,21 +11,18 @@ public class BasePage extends Base {
     @FindBy(css = ".create-an-account")
     private WebElement registrationButton;
 
-    private WebDriver driver;
 
     public BasePage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
     }
 
-    public WebElement getLoginButton(){
+    public WebElement getLoginButton() {
         return insertButton;
     }
 
-    public WebElement getRegistrationButton(){
+    public WebElement getRegistrationButton() {
         return registrationButton;
     }
-
 
 
 }

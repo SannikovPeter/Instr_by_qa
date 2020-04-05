@@ -1,18 +1,29 @@
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.MainPageSteps;
 
 public class LoginTests extends WebDriverSettings {
+    private MainPageSteps mainPageSteps;
+    private String name = "Peter";
+    private String password = "1234qwerty";
+
+    @BeforeTest
+    public void start() {
+        mainPageSteps = new MainPageSteps(driver);
+    }
+
+//    @Test
+//    public void registrationTest() {
+//        mainPageSteps.getRegistrationPageSteps().registration(name,password,mail);
+//    }
 
     @Test
-    public void successLogin() {
-        String name = "name";
-        String password = "1234";
+    public void successLoginTest() {
 
-        MainPageSteps mainPageSteps = new MainPageSteps(driver);
 
         boolean isLoginSuccess = mainPageSteps.getLoginPageSteps().successLogin(name, password).isUserProfilePage();
 
-        Assert.assertEquals(isLoginSuccess, true, "Login is fail");
+        Assert.assertTrue(isLoginSuccess, "Login is fail");
     }
 }
