@@ -20,6 +20,7 @@ public class RegistrationPage extends BasePage {
     private WebElement registrationButtonLocator;
     @FindBy(css = ".recaptcha-checkbox-border")
     private WebElement captchaBox;
+
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }

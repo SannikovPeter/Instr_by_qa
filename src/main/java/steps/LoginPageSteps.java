@@ -9,6 +9,7 @@ public class LoginPageSteps extends BasePageSteps {
     private WebDriver driver;
 
     public LoginPageSteps(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         loginPage = PageFactory.initElements(driver, LoginPage.class);
     }

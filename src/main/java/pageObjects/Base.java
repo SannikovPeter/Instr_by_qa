@@ -15,4 +15,8 @@ public class Base {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIME_OUT));
     }
+
+    public WebDriverWait getWait() {
+        return wait;
+    }
 }

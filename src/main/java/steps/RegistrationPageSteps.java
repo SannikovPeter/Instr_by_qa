@@ -10,6 +10,7 @@ public class RegistrationPageSteps extends BasePageSteps {
     private WebDriver driver;
 
     public RegistrationPageSteps(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
     }
