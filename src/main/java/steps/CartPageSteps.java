@@ -14,11 +14,29 @@ public class CartPageSteps extends BasePageSteps {
         this.driver = driver;
         cartPage = PageFactory.initElements(driver, CartPage.class);
     }
-    //Table has 8 rows
-    //items start from second row
 
-    public int getValueOfItems() {
-        return cartPage.getTableRows().size();
+    public int getNumberOfItems() {
+        return cartPage.getRowsList().size() - cartPage.getBaseNumberOfTableRows();
     }
 
+    public double getTotalBill() {
+        return stringPriceToDouble(cartPage.getTotalBillLocator().getText());
+    }
+
+    public double getItemPrice(int indexOfItem) {
+        return stringPriceToDouble(cartPage.getItemTotalLocator(indexOfItem).getText());
+    }
+
+    public double getSumOfItemPrices() {
+        double sumOfItemPrices = 0;
+        for (int i = 0; i < getNumberOfItems(); i++) {
+            sumOfItemPrices += getItemPrice(i);
+        }
+        return sumOfItemPrices;
+    }
+
+    public CartPageSteps removeItem(int indexOfItem) {
+        cartPage.removeItemFromCartButton(indexOfItem).click();
+        return new CartPageSteps(driver);
+    }
 }

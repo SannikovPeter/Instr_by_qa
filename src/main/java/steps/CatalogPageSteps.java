@@ -15,26 +15,18 @@ public class CatalogPageSteps extends BasePageSteps {
         catalogPage = PageFactory.initElements(driver, CatalogPage.class);
     }
 
-    public ItemPageSteps getItemPage(int indexOfItem) {
-        moveToElementAndClick(catalogPage.getItemsList().get(indexOfItem));
-        return new ItemPageSteps(driver);
-    }
-
-    private void addItemToCart(int indexOfItem) {
+    public ItemSteps getItem(int indexOfItem) {
         moveTo(catalogPage.getItemsList().get(indexOfItem));
-        new ItemSteps(driver, indexOfItem).addItemToCart();
+        return new ItemSteps(driver, indexOfItem);
     }
 
-    public CatalogPageSteps addItemToCartAndContinue(int indexOfItem) {
-        addItemToCart(indexOfItem);
+    public CatalogPageSteps continueShopping() {
         waitUntilBeClickableAndClick(catalogPage.getContinueButton());
         return new CatalogPageSteps(driver);
     }
 
-    public CartPageSteps addItemToCartAndGetCart(int indexOfItem) {
-        addItemToCart(indexOfItem);
+    public CartPageSteps getCartPage() {
         waitUntilBeClickableAndClick(catalogPage.getPopUpShowCartButton());
         return new CartPageSteps(driver);
     }
-
 }

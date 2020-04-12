@@ -41,4 +41,11 @@ public class BasePageSteps extends BaseSteps {
         basePage.getDropDownShowCartButton().click();
         return new CartPageSteps(driver);
     }
+
+    public boolean isCartEmpty() {
+        basePage.getFastCartButton().click();
+        boolean result = basePage.getTotalProductsLocator().getText().contains("Корзина пуста");
+        basePage.getFastCartButton().click();
+        return result;
+    }
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import pageObjects.ItemPage;
 
 public class ItemPageSteps extends BasePageSteps {
+
     private WebDriver driver;
     private ItemPage itemPage;
 

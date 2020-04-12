@@ -14,8 +14,20 @@ public class ItemSteps extends BaseSteps {
         item = new Item(driver, indexOfItem);
     }
 
-    public void addItemToCart() {
-        item.getAddToCartButton().click();
+    public CatalogPageSteps addItemToCart() {
+        try {
+            item.getAddToCartButton().click();
+        } catch (Exception e) {
+            scrollWindow(100);
+            item.getAddToCartButton().click();
+        }
+
+        return new CatalogPageSteps(driver);
+    }
+
+    public ItemPageSteps getItemPage() {
+        item.getItemLocator().click();
+        return new ItemPageSteps(driver);
     }
 
 }
