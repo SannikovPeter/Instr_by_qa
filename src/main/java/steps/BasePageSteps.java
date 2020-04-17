@@ -16,9 +16,14 @@ public class BasePageSteps extends BaseSteps {
         basePage = PageFactory.initElements(driver, BasePage.class);
     }
 
-    public LoginPageSteps getLoginPageSteps() {
+    public LoginPageSteps openLoginPage() {
         basePage.getInsertButton().click();
         return new LoginPageSteps(driver);
+    }
+
+    public MainPageSteps exit() {
+        basePage.getExitButton().click();
+        return new MainPageSteps(driver);
     }
 
     public RegistrationPageSteps getRegistrationPageSteps() {
@@ -47,5 +52,15 @@ public class BasePageSteps extends BaseSteps {
         boolean result = basePage.getTotalProductsLocator().getText().contains("Корзина пуста");
         basePage.getFastCartButton().click();
         return result;
+    }
+
+    public void removeAllItemsFromCart() {
+        if (!isCartEmpty()) {
+            CartPageSteps cartPageSteps = openCartPage();
+            int numberOfItems = cartPageSteps.getNumberOfItems();
+            for (int i = 0; i < numberOfItems; i++) {
+                cartPageSteps.removeItem(0);
+            }
+        }
     }
 }

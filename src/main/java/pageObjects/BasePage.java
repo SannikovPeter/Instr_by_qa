@@ -24,11 +24,13 @@ public class BasePage extends Base {
     @FindBy(css = ".total-container")
     private WebElement fastCartTotalBar;
     @FindBy(css = ".showcart")
-    private WebElement showCartButton;
+    private WebElement popUpShowCartButton;
     @FindBy(id = "fancybox-close")
     private WebElement closePopUpMenuButton;
     @FindBy(css = ".total_products")
     private WebElement totalProductsLocator;
+    @FindBy(css = ".item-697")
+    private WebElement exitButton;
 
     public BasePage(WebDriver driver) {
         super(driver);
@@ -59,7 +61,7 @@ public class BasePage extends Base {
     }
 
     public WebElement getPopUpShowCartButton() {
-        return showCartButton;
+        return popUpShowCartButton;
     }
 
     public WebElement getContinueButton() {
@@ -76,5 +78,9 @@ public class BasePage extends Base {
 
     public WebElement getTotalProductsLocator() {
         return totalProductsLocator;
+    }
+
+    public WebElement getExitButton() {
+        return exitButton;
     }
 }

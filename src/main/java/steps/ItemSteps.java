@@ -8,21 +8,20 @@ public class ItemSteps extends BaseSteps {
     private Item item;
     private WebDriver driver;
 
-    public ItemSteps(WebDriver driver, int indexOfItem) {
+    public ItemSteps(WebDriver driver, Item item) {
         super(driver);
         this.driver = driver;
-        item = new Item(driver, indexOfItem);
+        this.item = item;
+//        item = PageFactory.initElements(driver, Item.class);
     }
 
-    public CatalogPageSteps addItemToCart() {
+    public void addItemToCart() {
         try {
             item.getAddToCartButton().click();
         } catch (Exception e) {
             scrollWindow(100);
             item.getAddToCartButton().click();
         }
-
-        return new CatalogPageSteps(driver);
     }
 
     public ItemPageSteps getItemPage() {

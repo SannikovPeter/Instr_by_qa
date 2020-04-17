@@ -1,34 +1,28 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindAll;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
 
 public class Item extends Base {
 
-    @FindAll(@FindBy(css = ".isotope-item"))
-    private List<WebElement> itemsList;
-    @FindAll(@FindBy(name = "addtocart"))
-    private List<WebElement> addToCartButton;
-    private WebDriver driver;
-    private int indexOfItem;
+    private By AddToCartButton = By.name("addtocart");
 
-    public Item(WebDriver driver, int indexOfItem) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-        this.indexOfItem = indexOfItem;
+    private WebElement itemLocator;
+
+//    public Item(WebDriver driver, WebElement itemLocator) {
+//        super(driver);
+//        this.itemLocator = itemLocator;
+//    }
+
+    public Item(WebElement itemLocator) {
+        this.itemLocator = itemLocator;
     }
 
     public WebElement getAddToCartButton() {
-        return addToCartButton.get(indexOfItem);
+        return itemLocator.findElement(AddToCartButton);
     }
 
     public WebElement getItemLocator() {
-        return itemsList.get(indexOfItem);
+        return itemLocator;
     }
 }

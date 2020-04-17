@@ -16,8 +16,8 @@ public class CatalogPageSteps extends BasePageSteps {
     }
 
     public ItemSteps getItem(int indexOfItem) {
-        moveTo(catalogPage.getItemsList().get(indexOfItem));
-        return new ItemSteps(driver, indexOfItem);
+        moveTo(catalogPage.getItemsList().get(indexOfItem).getItemLocator());
+        return new ItemSteps(driver, catalogPage.getItemsList().get(indexOfItem));
     }
 
     public CatalogPageSteps continueShopping() {
