@@ -3,15 +3,15 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.CartPageSteps;
 import steps.CatalogPageSteps;
+import steps.SearchPageSteps;
 import steps.MainPageSteps;
 
-public class SimpleTests extends WebDriverSettings {
+public class CartTests extends WebDriverSettings {
 
     private MainPageSteps mainPageSteps;
-    private CatalogPageSteps catalogPageSteps;
+    private SearchPageSteps searchPageSteps;
     private CartPageSteps cartPageSteps;
-    private String name = "Peter";
-    private String password = "1234qwerty";
+    private CatalogPageSteps catalogPageSteps;
     private String itemName = "Пила циркулярная";
     private int[] indexesOfItem = {0, 2, 1, 5, 6};
 
@@ -61,12 +61,12 @@ public class SimpleTests extends WebDriverSettings {
         Assert.assertEquals(cartPageSteps.getTotalBill(), cartPageSteps.getSumOfItemPrices(), "Sum and total bill are not equal");
     }
 
-    private void addItemsToCart(String nameOfItem, int[] indexOfItems) {
+    private void addItemsToCart(String itemName, int[] indexOfItems) {
         for (int itemIndex : indexesOfItem) {
-            catalogPageSteps = mainPageSteps.search(itemName);
-            catalogPageSteps.getItem(itemIndex).addItemToCart();
-            catalogPageSteps.continueShopping();
+            searchPageSteps = mainPageSteps.search(itemName);
+            searchPageSteps.getItem(itemIndex).addItemToCart();
+            catalogPageSteps = searchPageSteps.continueShopping();
+            catalogPageSteps.backToMainPage();
         }
     }
-
 }

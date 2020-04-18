@@ -4,17 +4,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageObjects.UserProfilePage;
 
-public class UserProfileSteps extends BasePageSteps {
+public class UserProfilePageSteps extends BasePageSteps {
 
     private UserProfilePage userProfilePage;
+    private WebDriver driver;
 
-    public UserProfileSteps(WebDriver driver) {
+    public UserProfilePageSteps(WebDriver driver) {
         super(driver);
+        this.driver = driver;
         userProfilePage = PageFactory.initElements(driver, UserProfilePage.class);
     }
 
-    public boolean isUserProfilePage() {
-        return userProfilePage.getProfileCore().isDisplayed();
+    @Override
+    public boolean isPageCorrect() {
+        return userProfilePage.getURL().equals(driver.getCurrentUrl());
     }
+
+
 
 }

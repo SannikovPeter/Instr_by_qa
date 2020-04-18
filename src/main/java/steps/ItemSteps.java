@@ -29,4 +29,8 @@ public class ItemSteps extends BaseSteps {
         return new ItemPageSteps(driver);
     }
 
+    public String getItemName(){
+        return item.getName().getText();
+    }
+
 }

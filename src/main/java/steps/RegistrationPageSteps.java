@@ -15,7 +15,7 @@ public class RegistrationPageSteps extends BasePageSteps {
         registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
     }
 
-    public UserProfileSteps registration(String name, String password, String email) {
+    public UserProfilePageSteps registration(String name, String password, String email) {
         registrationPage.getEmailField().sendKeys(email);
         registrationPage.getNameField().sendKeys(name);
         registrationPage.getUserNameField().sendKeys(name);
@@ -23,7 +23,7 @@ public class RegistrationPageSteps extends BasePageSteps {
         registrationPage.getConfirmPasswordField().sendKeys(password);
         registrationPage.getCaptchaBox().submit();
         registrationPage.getRegistrationButtonLocator().submit();
-        return new UserProfileSteps(driver);
+        return new UserProfilePageSteps(driver);
     }
 
 

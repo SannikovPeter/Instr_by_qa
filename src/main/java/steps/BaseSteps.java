@@ -27,7 +27,12 @@ public class BaseSteps {
         wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();
     }
 
+    public void waitUntilBeVisible(WebElement webElement){
+        wait.until(ExpectedConditions.visibilityOf(webElement));
+    }
+
     public void moveTo(WebElement webElement) {
+        waitUntilBeVisible(webElement);
         actions.moveToElement(webElement).build().perform();
     }
 

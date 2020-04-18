@@ -9,9 +9,12 @@ public class WebDriverSettings {
 
     private static final int TIME = 10;
     WebDriver driver;
+    protected String name = "Peter";
+    protected String password = "1234qwerty";
 
     @BeforeTest
     public void WebSettings() {
+
         System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver81.exe");
         driver = new ChromeDriver();
         driver.get("https://instr.by/");

@@ -1,12 +1,14 @@
 package steps;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pageObjects.BasePage;
 
 public class BasePageSteps extends BaseSteps {
 
+    public static final String Cart_is_empty = "Корзина пуста";
     private WebDriver driver;
     private BasePage basePage;
 
@@ -14,6 +16,10 @@ public class BasePageSteps extends BaseSteps {
         super(driver);
         this.driver = driver;
         basePage = PageFactory.initElements(driver, BasePage.class);
+    }
+
+    public boolean isPageCorrect() {
+        return basePage.getURL().equals(driver.getCurrentUrl());
     }
 
     public LoginPageSteps openLoginPage() {
@@ -36,9 +42,9 @@ public class BasePageSteps extends BaseSteps {
         return new MainPageSteps(driver);
     }
 
-    public CatalogPageSteps search(String searchItem) {
+    public SearchPageSteps search(String searchItem) {
         basePage.getFastSearchBar().sendKeys(searchItem + Keys.ENTER);
-        return new CatalogPageSteps(driver);
+        return new SearchPageSteps(driver);
     }
 
     public CartPageSteps openCartPage() {
@@ -49,7 +55,7 @@ public class BasePageSteps extends BaseSteps {
 
     public boolean isCartEmpty() {
         basePage.getFastCartButton().click();
-        boolean result = basePage.getTotalProductsLocator().getText().contains("Корзина пуста");
+        boolean result = basePage.getTotalProductsLocator().getText().contains(Cart_is_empty);
         basePage.getFastCartButton().click();
         return result;
     }
@@ -61,6 +67,16 @@ public class BasePageSteps extends BaseSteps {
             for (int i = 0; i < numberOfItems; i++) {
                 cartPageSteps.removeItem(0);
             }
+        }
+    }
+
+    public void checkLogIn() {
+        try {
+            if (basePage.getExitButton().isDisplayed()) {
+                exit();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("User has been log in");
         }
     }
 }

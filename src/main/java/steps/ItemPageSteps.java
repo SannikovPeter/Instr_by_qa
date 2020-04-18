@@ -15,9 +15,10 @@ public class ItemPageSteps extends BasePageSteps {
         itemPage = PageFactory.initElements(driver, ItemPage.class);
     }
 
-    public void addToCart() {
+    public SearchPageSteps addToCart() {
         itemPage.getAddToCartButton().click();
         waitUntilBeClickableAndClick(itemPage.getContinueButton());
+        return new SearchPageSteps(driver);
     }
 
 }

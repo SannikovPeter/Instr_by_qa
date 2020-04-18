@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 
 public class BasePage extends Base {
 
+    private String uRL;
+
     @FindBy(css = ".item-121")
     private WebElement insertButton;
     @FindBy(css = ".create-an-account")
@@ -34,6 +36,10 @@ public class BasePage extends Base {
 
     public BasePage(WebDriver driver) {
         super(driver);
+    }
+
+    public String getURL() {
+        return uRL;
     }
 
     public WebElement getInsertButton() {
@@ -83,4 +89,5 @@ public class BasePage extends Base {
     public WebElement getExitButton() {
         return exitButton;
     }
+
 }

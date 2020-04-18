@@ -20,14 +20,23 @@ public class LoginPageSteps extends BasePageSteps {
         loginPage.getSubmitButton().submit();
     }
 
-    public UserProfileSteps successLogin(String name, String password) {
+    public UserProfilePageSteps successLogin(String name, String password) {
         login(name, password);
-        return new UserProfileSteps(driver);
+        return new UserProfilePageSteps(driver);
     }
 
     public LoginPageSteps unsuccessfulLogin(String name, String password) {
         login(name, password);
         return new LoginPageSteps(driver);
+    }
+
+    @Override
+    public boolean isPageCorrect() {
+        return loginPage.getURL().equals(driver.getCurrentUrl());
+    }
+
+    public boolean isAlertPresent() {
+        return loginPage.getAlertWrongNameOrPassword().isDisplayed();
     }
 
 }
