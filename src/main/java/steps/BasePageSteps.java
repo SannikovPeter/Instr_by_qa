@@ -8,7 +8,7 @@ import pageObjects.BasePage;
 
 public class BasePageSteps extends BaseSteps {
 
-    public static final String Cart_is_empty = "Корзина пуста";
+    private static final String Cart_is_empty = "Корзина пуста";
     private WebDriver driver;
     private BasePage basePage;
 
@@ -53,7 +53,7 @@ public class BasePageSteps extends BaseSteps {
         return new CartPageSteps(driver);
     }
 
-    public boolean isCartEmpty() {
+    private boolean isCartEmpty() {
         basePage.getFastCartButton().click();
         boolean result = basePage.getTotalProductsLocator().getText().contains(Cart_is_empty);
         basePage.getFastCartButton().click();

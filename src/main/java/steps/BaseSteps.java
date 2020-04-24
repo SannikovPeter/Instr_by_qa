@@ -27,7 +27,7 @@ public class BaseSteps {
         wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();
     }
 
-    public void waitUntilBeVisible(WebElement webElement){
+    public void waitUntilBeVisible(WebElement webElement) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
@@ -41,7 +41,11 @@ public class BaseSteps {
     }
 
     public double stringPriceToDouble(String price) {
-        return Double.parseDouble(price.substring(0, price.length() - 4));
+        double doublePrice = Double.parseDouble(price.substring(0, price.length() - 4));
+        doublePrice *= 100;
+        int i = (int) Math.round(doublePrice);
+        doublePrice = i / 100;
+        return doublePrice;
     }
 
     public void scrollWindow(int y) {

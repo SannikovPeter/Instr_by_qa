@@ -19,11 +19,9 @@ public class SearchPage extends BasePage {
     @FindAll(@FindBy(css = ".isotope-item"))
     private List<WebElement> itemsLocatorList;
     private List<Item> itemsList;
-    private WebDriver driver;
 
     public SearchPage(WebDriver driver) {
         super(driver);
-        this.driver = driver;
         createItemsList();
     }
 

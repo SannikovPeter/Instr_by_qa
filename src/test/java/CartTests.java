@@ -1,10 +1,12 @@
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.CartPageSteps;
 import steps.CatalogPageSteps;
-import steps.SearchPageSteps;
 import steps.MainPageSteps;
+import steps.SearchPageSteps;
 
 public class CartTests extends WebDriverSettings {
 
@@ -13,7 +15,7 @@ public class CartTests extends WebDriverSettings {
     private CartPageSteps cartPageSteps;
     private CatalogPageSteps catalogPageSteps;
     private String itemName = "Пила циркулярная";
-    private int[] indexesOfItem = {0, 2, 1, 5, 6};
+    private int[] indexesOfItem = {0, 5, 6};
 
     @BeforeTest
     public void start() {
@@ -21,6 +23,11 @@ public class CartTests extends WebDriverSettings {
         mainPageSteps.openLoginPage().successLogin(name, password);
         mainPageSteps.removeAllItemsFromCart();
     }
+//
+//    @BeforeMethod
+//    public void beforeStart() {
+//
+//    }
 
     @Test
     public void isItemsAddToCartTest() {

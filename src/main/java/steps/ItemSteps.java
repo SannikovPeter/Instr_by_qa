@@ -20,7 +20,8 @@ public class ItemSteps extends BaseSteps {
             item.getAddToCartButton().click();
         } catch (Exception e) {
             scrollWindow(100);
-            item.getAddToCartButton().click();
+            waitUntilBeClickableAndClick(item.getAddToCartButton());
+//            item.getAddToCartButton().click();
         }
     }
 
