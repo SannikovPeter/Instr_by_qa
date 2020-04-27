@@ -2,11 +2,8 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-public class CatalogPage extends BasePage {
-
-    public CatalogPage(WebDriver driver) {
+public class ContactsPage extends BasePage {
+    public ContactsPage(WebDriver driver) {
         super(driver);
     }
-
-
 }

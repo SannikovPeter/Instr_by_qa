@@ -79,4 +79,9 @@ public class BasePageSteps extends BaseSteps {
             System.out.println("User has been log in");
         }
     }
+
+    public MainMenuSteps getMainMenuSteps() {
+        return new MainMenuSteps(driver);
+    }
+
 }
