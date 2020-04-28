@@ -1,7 +1,6 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.UserProfilePage;
 
 public class UserProfilePageSteps extends BasePageSteps {
@@ -12,14 +11,13 @@ public class UserProfilePageSteps extends BasePageSteps {
     public UserProfilePageSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        userProfilePage = PageFactory.initElements(driver, UserProfilePage.class);
+        userProfilePage = new UserProfilePage(driver);
     }
 
     @Override
     public boolean isPageCorrect() {
         return userProfilePage.getURL().equals(driver.getCurrentUrl());
     }
-
 
 
 }

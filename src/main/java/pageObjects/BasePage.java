@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class BasePage extends Base {
 
-    private String uRL;
+    private String correctURL;
 
     @FindBy(css = ".item-121")
     private WebElement insertButton;
@@ -39,7 +39,7 @@ public class BasePage extends Base {
     }
 
     public String getURL() {
-        return uRL;
+        return correctURL;
     }
 
     public WebElement getInsertButton() {

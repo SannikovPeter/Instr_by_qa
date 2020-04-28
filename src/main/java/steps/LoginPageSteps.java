@@ -1,7 +1,6 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.LoginPage;
 
 public class LoginPageSteps extends BasePageSteps {
@@ -11,7 +10,7 @@ public class LoginPageSteps extends BasePageSteps {
     public LoginPageSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        loginPage = PageFactory.initElements(driver, LoginPage.class);
+        loginPage = new LoginPage(driver);
     }
 
     private void login(String name, String password) {

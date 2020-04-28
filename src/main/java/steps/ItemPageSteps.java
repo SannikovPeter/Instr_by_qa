@@ -1,7 +1,6 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.ItemPage;
 
 public class ItemPageSteps extends BasePageSteps {
@@ -12,7 +11,7 @@ public class ItemPageSteps extends BasePageSteps {
     public ItemPageSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        itemPage = PageFactory.initElements(driver, ItemPage.class);
+        itemPage = new ItemPage(driver);
     }
 
     public SearchPageSteps addToCart() {

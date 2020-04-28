@@ -9,9 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class CartPage extends BasePage {
-
     private static final int BASE_NUMBER_OF_TABLE_ROWS = 8;
-
+    private String correctURL = "https://instr.by/catalog/cart";
     @FindAll(@FindBy(tagName = "tr"))
     private List<WebElement> rowsList;
     @FindBy(css = ".PricebillTotal")
@@ -25,6 +24,11 @@ public class CartPage extends BasePage {
 
     public CartPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public String getURL() {
+        return correctURL;
     }
 
     public List<WebElement> getRowsList() {

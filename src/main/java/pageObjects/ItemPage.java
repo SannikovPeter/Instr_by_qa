@@ -13,6 +13,11 @@ public class ItemPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public String getURL() {
+        return null;
+    }
+
     public WebElement getAddToCartButton() {
         return addToCartButton;
     }

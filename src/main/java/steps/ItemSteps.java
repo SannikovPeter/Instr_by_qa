@@ -12,7 +12,6 @@ public class ItemSteps extends BaseSteps {
         super(driver);
         this.driver = driver;
         this.item = item;
-//        item = PageFactory.initElements(driver, Item.class);
     }
 
     public void addItemToCart() {
@@ -21,7 +20,6 @@ public class ItemSteps extends BaseSteps {
         } catch (Exception e) {
             scrollWindow(100);
             waitUntilBeClickableAndClick(item.getAddToCartButton());
-//            item.getAddToCartButton().click();
         }
     }
 
@@ -30,7 +28,7 @@ public class ItemSteps extends BaseSteps {
         return new ItemPageSteps(driver);
     }
 
-    public String getItemName(){
+    public String getItemName() {
         return item.getName().getText();
     }
 

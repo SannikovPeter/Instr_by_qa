@@ -1,7 +1,6 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.SearchPage;
 
 public class SearchPageSteps extends BasePageSteps {
@@ -12,7 +11,7 @@ public class SearchPageSteps extends BasePageSteps {
     public SearchPageSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        searchPage = PageFactory.initElements(driver, SearchPage.class);
+        searchPage = new SearchPage(driver);
     }
 
     public ItemSteps getItem(int indexOfItem) {

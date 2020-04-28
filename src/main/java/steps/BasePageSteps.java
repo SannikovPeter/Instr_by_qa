@@ -3,7 +3,6 @@ package steps;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.BasePage;
 
 public class BasePageSteps extends BaseSteps {
@@ -15,7 +14,7 @@ public class BasePageSteps extends BaseSteps {
     public BasePageSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        basePage = PageFactory.initElements(driver, BasePage.class);
+        basePage = new BasePage(driver);
     }
 
     public boolean isPageCorrect() {

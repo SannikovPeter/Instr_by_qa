@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ConstructionAndRepairBlogPage extends BasePage {
 
-    private String uRL = "https://instr.by/blog/strojka-i-remont";
+    private String correctURL = "https://instr.by/blog/strojka-i-remont";
 
     public ConstructionAndRepairBlogPage(WebDriver driver) {
         super(driver);
@@ -12,6 +12,6 @@ public class ConstructionAndRepairBlogPage extends BasePage {
 
     @Override
     public String getURL() {
-        return uRL;
+        return correctURL;
     }
 }

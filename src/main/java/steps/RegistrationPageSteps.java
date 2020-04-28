@@ -1,7 +1,6 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.RegistrationPage;
 
 public class RegistrationPageSteps extends BasePageSteps {
@@ -12,7 +11,7 @@ public class RegistrationPageSteps extends BasePageSteps {
     public RegistrationPageSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
+        registrationPage = new RegistrationPage(driver);
     }
 
     public UserProfilePageSteps registration(String name, String password, String email) {

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RegistrationPage extends BasePage {
-
+    private String correctURL = "https://instr.by/uchetnaya-zapis";
     @FindBy(id = "email_field")
     private WebElement emailField;
     @FindBy(id = "name_field")
@@ -23,6 +23,11 @@ public class RegistrationPage extends BasePage {
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Override
+    public String getURL() {
+        return correctURL;
     }
 
     public WebElement getEmailField() {

@@ -10,10 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPage extends BasePage {
-
     private static final By catalogSearchInput = By.cssSelector(".inputbox");
     private static final By searchSubmitButton = By.cssSelector(".button");
-
+    private String correctURL = "";
     @FindBy(css = ".virtuemart_search")
     private WebElement catalogSearch;
     @FindAll(@FindBy(css = ".isotope-item"))
@@ -23,6 +22,11 @@ public class SearchPage extends BasePage {
     public SearchPage(WebDriver driver) {
         super(driver);
         createItemsList();
+    }
+
+    @Override
+    public String getURL() {
+        return null;
     }
 
     private void createItemsList() {

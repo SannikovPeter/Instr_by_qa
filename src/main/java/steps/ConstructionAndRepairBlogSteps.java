@@ -1,22 +1,21 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 import pageObjects.ConstructionAndRepairBlogPage;
 
 public class ConstructionAndRepairBlogSteps extends BasePageSteps {
 
-    private ConstructionAndRepairBlogPage constructionAndRepairBlogPage;
+    private ConstructionAndRepairBlogPage page;
     private WebDriver driver;
 
     public ConstructionAndRepairBlogSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        constructionAndRepairBlogPage = PageFactory.initElements(driver, ConstructionAndRepairBlogPage.class);
+        page = new ConstructionAndRepairBlogPage(driver);
     }
 
     @Override
     public boolean isPageCorrect() {
-        return constructionAndRepairBlogPage.getURL().equals(driver.getCurrentUrl());
+        return page.getURL().equals(driver.getCurrentUrl());
     }
 }
