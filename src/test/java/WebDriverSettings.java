@@ -1,11 +1,17 @@
+import config.AppConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import steps.BasePageSteps;
 
 import java.util.concurrent.TimeUnit;
 
+@ContextConfiguration(classes = {AppConfig.class})
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 public class WebDriverSettings {
 
     private static final int TIME = 10;

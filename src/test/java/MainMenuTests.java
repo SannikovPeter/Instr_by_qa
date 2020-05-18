@@ -23,14 +23,18 @@ public class MainMenuTests extends WebDriverSettings {
     @Test
     public void dropDownMenuTest() {
         ConstructionAndRepairBlogSteps constructionAndRepairBlogSteps;
-        constructionAndRepairBlogSteps = mainPageSteps.getMainMenuSteps().openBlogConstructionAndRepairPage();
+        constructionAndRepairBlogSteps = mainPageSteps
+                .getMainMenuSteps()
+                .openBlogConstructionAndRepairPage();
         Assert.assertTrue(constructionAndRepairBlogSteps.isPageCorrect());
     }
 
     @Test
     public void catalogButtonTest() {
         CatalogPageSteps catalogPageSteps;
-        catalogPageSteps = mainPageSteps.getMainMenuSteps().openCatalogPage();
+        catalogPageSteps = mainPageSteps
+                .getMainMenuSteps()
+                .openCatalogPage();
         Assert.assertTrue(catalogPageSteps.isPageCorrect());
     }
 
