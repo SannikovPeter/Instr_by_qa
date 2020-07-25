@@ -2,17 +2,14 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.SearchPageSteps;
-import steps.MainPageSteps;
 
-public class SearchTests extends WebDriverSettings {
+public class SearchTests extends AllTestsSettings {
 
-    private MainPageSteps mainPageSteps;
     private SearchPageSteps searchPageSteps;
 
     @BeforeTest
     public void start() {
-        mainPageSteps = new MainPageSteps(driver);
-        mainPageSteps.openLoginPage().successLogin(name, password).backToMainPage();
+        mainPageSteps.openLoginPage().successLogin(loginName, loginPassword).backToMainPage();
     }
 
     @Test

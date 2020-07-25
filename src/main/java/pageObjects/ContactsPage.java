@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ContactsPage extends BasePage {
 
-    private String correctURL = "https://instr.by/feedback";
+    private final static String correctURL = "https://instr.by/feedback";
 
     public ContactsPage(WebDriver driver) {
         super(driver);

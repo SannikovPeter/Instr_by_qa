@@ -18,6 +18,4 @@ public class UserProfilePageSteps extends BasePageSteps {
     public boolean isPageCorrect() {
         return userProfilePage.getURL().equals(driver.getCurrentUrl());
     }
-
-
 }

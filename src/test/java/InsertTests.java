@@ -1,20 +1,12 @@
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.LoginPageSteps;
-import steps.MainPageSteps;
 
-public class InsertTests extends WebDriverSettings {
+public class InsertTests extends AllTestsSettings {
 
-    private MainPageSteps mainPageSteps;
     private LoginPageSteps loginPageSteps;
-
-    @BeforeTest
-    public void start() {
-        mainPageSteps = new MainPageSteps(driver);
-    }
 
     @BeforeMethod
     public void checkLogOut() {
@@ -29,22 +21,19 @@ public class InsertTests extends WebDriverSettings {
 
     @Test
     public void successInsertTest() {
-        String name = "Peter";
-        String password = "1234qwerty";
-
-        Assert.assertTrue(loginPageSteps.successLogin(name, password).isPageCorrect());
+        Assert.assertTrue(loginPageSteps.successLogin(loginName, loginPassword).isPageCorrect());
     }
 
     @Test
     public void unsuccessfulInsertTest() {
-        String name = "Name";
-        String password = "1234";
+        String wrongName = "Name";
+        String wrongPassword = "1234";
 
-        Assert.assertTrue(loginPageSteps.unsuccessfulLogin(name, password).isAlertPresent());
+        Assert.assertTrue(loginPageSteps.unsuccessfulLogin(wrongName, wrongPassword).isAlertPresent());
     }
 
     @AfterMethod
-    public void endTest(){
+    public void endTest() {
         mainPageSteps.backToMainPage();
     }
 

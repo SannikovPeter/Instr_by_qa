@@ -5,8 +5,8 @@ import org.openqa.selenium.WebElement;
 
 public class Item extends Base {
 
-    private By itemDescriptionLocator = By.cssSelector(".vm-product-descr-container-1");
-    private By AddToCartButton = By.name("addtocart");
+    private final static By itemDescriptionLocator = By.cssSelector(".vm-product-descr-container-1");
+    private final static By AddToCartButton = By.name("addtocart");
 
     private WebElement itemLocator;
     private WebElement itemDescription;

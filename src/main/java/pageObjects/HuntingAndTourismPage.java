@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HuntingAndTourismPage extends BasePage {
 
-    private String correctURL = "https://instr.by/blog/travel-hunting";
+    private final static String correctURL = "https://instr.by/blog/travel-hunting";
 
     public HuntingAndTourismPage(WebDriver driver) {
         super(driver);

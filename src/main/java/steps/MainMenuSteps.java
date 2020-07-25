@@ -6,7 +6,6 @@ import pageObjects.MainMenu;
 import static pageObjects.MainMenu.MainMenuButtons.*;
 
 public class MainMenuSteps<T extends BasePageSteps> extends BasePageSteps {
-
     private MainMenu mainMenu;
     private WebDriver driver;
 

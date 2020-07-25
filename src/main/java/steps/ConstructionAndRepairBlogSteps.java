@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.ConstructionAndRepairBlogPage;
 
 public class ConstructionAndRepairBlogSteps extends BasePageSteps {
-
     private ConstructionAndRepairBlogPage page;
     private WebDriver driver;
 

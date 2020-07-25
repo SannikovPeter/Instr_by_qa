@@ -1,23 +1,14 @@
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.CatalogPageSteps;
 import steps.ConstructionAndRepairBlogSteps;
-import steps.MainPageSteps;
 
-public class MainMenuTests extends WebDriverSettings {
-
-    private MainPageSteps mainPageSteps;
-
-    @BeforeTest
-    public void start() {
-        mainPageSteps = new MainPageSteps(driver);
-    }
+public class MainMenuTests extends AllTestsSettings {
 
     @AfterMethod
     public void endTest() {
-        backToStartPage();
+        mainPageSteps.backToMainPage();
     }
 
     @Test

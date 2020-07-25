@@ -1,68 +1,67 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.CartPageSteps;
 import steps.CatalogPageSteps;
-import steps.MainPageSteps;
 import steps.SearchPageSteps;
 
-public class CartTests extends WebDriverSettings {
+public class CartTests extends AllTestsSettings {
 
-    private MainPageSteps mainPageSteps;
+    private static final Logger logger = LoggerFactory.getLogger(CartTests.class);
+
     private SearchPageSteps searchPageSteps;
     private CartPageSteps cartPageSteps;
     private CatalogPageSteps catalogPageSteps;
-    private String itemName = "Пила циркулярная";
-    private int[] indexesOfItem = {0, 5, 6};
+    private String searchingItemName = "Пила циркулярная";
+    private int[] indexOfItems = {0, 5, 6};
 
     @BeforeTest
     public void start() {
-        mainPageSteps = new MainPageSteps(driver);
-        mainPageSteps.openLoginPage().successLogin(name, password);
+        mainPageSteps.openLoginPage().successLogin(loginName, loginPassword);
         mainPageSteps.removeAllItemsFromCart();
     }
 
     @Test
     public void isItemsAddToCartTest() {
-        addItemsToCart(itemName, indexesOfItem);
+        addMassiveOfItemsToCart(searchingItemName, indexOfItems);
         cartPageSteps = mainPageSteps.openCartPage();
 
-        Assert.assertEquals(cartPageSteps.getNumberOfItems(), indexesOfItem.length, "Number of items are not equal");
+        Assert.assertEquals(cartPageSteps.getAmountOfItems(), indexOfItems.length, "Number of items are not equal");
     }
 
     @Test
     public void cartMemoryTest() {
-        addItemsToCart(itemName, indexesOfItem);
+        addMassiveOfItemsToCart(searchingItemName, indexOfItems);
         mainPageSteps.exit();
-        mainPageSteps.openLoginPage().successLogin(name, password);
-        int numberOfItems = mainPageSteps.openCartPage().getNumberOfItems();
+        mainPageSteps.openLoginPage().successLogin(loginName, loginPassword);
+        int numberOfItems = mainPageSteps.openCartPage().getAmountOfItems();
 
-        Assert.assertEquals(indexesOfItem.length, numberOfItems, "Number are not equal");
+        Assert.assertEquals(indexOfItems.length, numberOfItems, "Number are not equal");
     }
 
     @Test
     public void isCartMoveToWithAuthorisationTest() {
         mainPageSteps.exit();
-        addItemsToCart(itemName, indexesOfItem);
-        int unLoginNumberOfItems = mainPageSteps.openCartPage().getNumberOfItems();
-        mainPageSteps.openLoginPage().successLogin(name, password);
-        int loginNumberOfItems = mainPageSteps.openCartPage().getNumberOfItems();
+        addMassiveOfItemsToCart(searchingItemName, indexOfItems);
+        int unLoginNumberOfItems = mainPageSteps.openCartPage().getAmountOfItems();
+        mainPageSteps.openLoginPage().successLogin(loginName, loginPassword);
+        int loginNumberOfItems = mainPageSteps.openCartPage().getAmountOfItems();
 
         Assert.assertEquals(unLoginNumberOfItems, loginNumberOfItems);
     }
 
     @Test
     public void isItemsPriceIsSummaryTest() {
-
-        addItemsToCart(itemName, indexesOfItem);
-
+        addMassiveOfItemsToCart(searchingItemName, indexOfItems);
         cartPageSteps = mainPageSteps.openCartPage();
 
         Assert.assertEquals(cartPageSteps.getTotalBill(), cartPageSteps.getSumOfItemPrices(), "Sum and total bill are not equal");
     }
 
-    private void addItemsToCart(String itemName, int[] indexOfItems) {
-        for (int itemIndex : indexesOfItem) {
+    private void addMassiveOfItemsToCart(String itemName, int[] indexOfItems) {
+        for (int itemIndex : indexOfItems) {
             searchPageSteps = mainPageSteps.search(itemName);
             searchPageSteps.getItem(itemIndex).addItemToCart();
             catalogPageSteps = searchPageSteps.continueShopping();

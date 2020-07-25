@@ -3,13 +3,17 @@ package steps;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import pageObjects.BasePage;
 
 public class BasePageSteps extends BaseSteps {
 
+    private static final Logger logger = LoggerFactory.getLogger(BasePageSteps.class);
+
     private static final String Cart_is_empty = "Корзина пуста";
-    private WebDriver driver;
     private BasePage basePage;
+    private WebDriver driver;
 
     public BasePageSteps(WebDriver driver) {
         super(driver);
@@ -62,7 +66,7 @@ public class BasePageSteps extends BaseSteps {
     public void removeAllItemsFromCart() {
         if (!isCartEmpty()) {
             CartPageSteps cartPageSteps = openCartPage();
-            int numberOfItems = cartPageSteps.getNumberOfItems();
+            int numberOfItems = cartPageSteps.getAmountOfItems();
             for (int i = 0; i < numberOfItems; i++) {
                 cartPageSteps.removeItem(0);
             }
@@ -75,7 +79,7 @@ public class BasePageSteps extends BaseSteps {
                 exit();
             }
         } catch (NoSuchElementException e) {
-            System.out.println("User has been log in");
+            logger.info("User has been log in");
         }
     }
 

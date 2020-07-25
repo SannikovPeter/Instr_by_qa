@@ -36,16 +36,8 @@ public class BaseSteps {
         actions.moveToElement(webElement).build().perform();
     }
 
-    public void moveToElementAndClick(WebElement webElement) {
-        actions.moveToElement(webElement).click().build().perform();
-    }
-
     public double stringPriceToDouble(String price) {
-        double doublePrice = Double.parseDouble(price.substring(0, price.length() - 4));
-        doublePrice *= 100;
-        int i = (int) Math.round(doublePrice);
-        doublePrice = i / 100;
-        return doublePrice;
+        return Double.parseDouble(price.substring(0, price.length() - 4));
     }
 
     public void scrollWindow(int y) {

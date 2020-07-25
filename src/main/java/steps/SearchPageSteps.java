@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import pageObjects.SearchPage;
 
 public class SearchPageSteps extends BasePageSteps {
-
     private SearchPage searchPage;
     private WebDriver driver;
 

@@ -12,7 +12,8 @@ import java.util.List;
 public class SearchPage extends BasePage {
     private static final By catalogSearchInput = By.cssSelector(".inputbox");
     private static final By searchSubmitButton = By.cssSelector(".button");
-    private String correctURL = "";
+    private final static String correctURL = "";
+
     @FindBy(css = ".virtuemart_search")
     private WebElement catalogSearch;
     @FindAll(@FindBy(css = ".isotope-item"))

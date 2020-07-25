@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class RegistrationPage extends BasePage {
-    private String correctURL = "https://instr.by/uchetnaya-zapis";
+    private final static String correctURL = "https://instr.by/uchetnaya-zapis";
     @FindBy(id = "email_field")
     private WebElement emailField;
     @FindBy(id = "name_field")

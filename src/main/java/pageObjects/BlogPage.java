@@ -3,7 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 public class BlogPage extends BasePage {
-    private String correctURL = "https://instr.by/blog";
+    private final static String correctURL = "https://instr.by/blog";
 
     public BlogPage(WebDriver driver) {
         super(driver);

@@ -7,5 +7,4 @@ public class MainPageSteps extends BasePageSteps {
     public MainPageSteps(WebDriver driver) {
         super(driver);
     }
-
 }

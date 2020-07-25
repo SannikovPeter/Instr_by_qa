@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    private String uRL = "https://instr.by/sign-in";
+    private final static String uRL = "https://instr.by/sign-in";
 
     @FindBy(css = ".alert-warning")
     private WebElement alertWrongNameOrPassword;
