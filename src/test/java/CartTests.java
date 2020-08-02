@@ -7,7 +7,7 @@ import steps.CartPageSteps;
 import steps.CatalogPageSteps;
 import steps.SearchPageSteps;
 
-public class CartTests extends AllTestsSettings {
+public class CartTests extends TestsSettings {
 
     private static final Logger logger = LoggerFactory.getLogger(CartTests.class);
 

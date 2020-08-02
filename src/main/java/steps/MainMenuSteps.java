@@ -3,16 +3,23 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import pageObjects.MainMenu;
 
+import static pageObjects.MainMenu.*;
 import static pageObjects.MainMenu.MainMenuButtons.*;
 
-public class MainMenuSteps<T extends BasePageSteps> extends BasePageSteps {
+public class MainMenuSteps extends BasePageSteps {
     private MainMenu mainMenu;
     private WebDriver driver;
+
 
     public MainMenuSteps(WebDriver driver) {
         super(driver);
         this.driver = driver;
         mainMenu = new MainMenu(driver);
+    }
+
+    public <T> T open(MainMenuButtons button) {
+        waitUntilBeClickableAndClick(mainMenu.getButton(button));
+        return (T) this;
     }
 
     public MainPageSteps openMainPage() {

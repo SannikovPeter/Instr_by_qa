@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import steps.CatalogPageSteps;
 import steps.ConstructionAndRepairBlogSteps;
 
-public class MainMenuTests extends AllTestsSettings {
+public class MainMenuTests extends TestsSettings {
 
     @AfterMethod
     public void endTest() {
@@ -13,6 +13,7 @@ public class MainMenuTests extends AllTestsSettings {
 
     @Test
     public void dropDownMenuTest() {
+
         ConstructionAndRepairBlogSteps constructionAndRepairBlogSteps;
         constructionAndRepairBlogSteps = mainPageSteps
                 .getMainMenuSteps()
@@ -28,5 +29,4 @@ public class MainMenuTests extends AllTestsSettings {
                 .openCatalogPage();
         Assert.assertTrue(catalogPageSteps.isPageCorrect());
     }
-
 }

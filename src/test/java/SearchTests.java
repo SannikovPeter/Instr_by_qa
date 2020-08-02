@@ -3,7 +3,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import steps.SearchPageSteps;
 
-public class SearchTests extends AllTestsSettings {
+public class SearchTests extends TestsSettings {
 
     private SearchPageSteps searchPageSteps;
 

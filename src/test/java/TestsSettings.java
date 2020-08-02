@@ -4,7 +4,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import steps.MainPageSteps;
 
-public class AllTestsSettings {
+
+public class TestsSettings {
 
     private PropertiesManager propertiesManager = new PropertiesManager();
     protected BrowserManager browserManager = new BrowserManager();
