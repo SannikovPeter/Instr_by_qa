@@ -1,6 +1,5 @@
 package steps;
 
-import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pageObjects.CartPage;
@@ -9,13 +8,10 @@ public class CartPageSteps extends BasePageSteps {
 
     private static final Logger logger = LoggerFactory.getLogger(CartPageSteps.class);
 
-    private final WebDriver driver;
     private final CartPage cartPage;
 
-    public CartPageSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        cartPage = new CartPage(driver);
+    public CartPageSteps() {
+        cartPage = new CartPage();
     }
 
     public int getAmountOfItems() {
@@ -47,6 +43,6 @@ public class CartPageSteps extends BasePageSteps {
 
     public CartPageSteps removeItem(int indexOfItem) {
         cartPage.removeItemFromCartButton(indexOfItem).click();
-        return new CartPageSteps(driver);
+        return new CartPageSteps();
     }
 }

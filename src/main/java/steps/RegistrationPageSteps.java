@@ -1,15 +1,10 @@
 package steps;
 
-import org.openqa.selenium.WebDriver;
 import pageObjects.RegistrationPage;
 
 public class RegistrationPageSteps extends BasePageSteps {
-    private RegistrationPage registrationPage;
-    private WebDriver driver;
 
-    public RegistrationPageSteps(WebDriver driver) {
-        super(driver);
-    }
+    private RegistrationPage registrationPage;
 
     public UserProfilePageSteps registration(String name, String password, String email) {
         registrationPage.getEmailField().sendKeys(email);
@@ -19,7 +14,7 @@ public class RegistrationPageSteps extends BasePageSteps {
         registrationPage.getConfirmPasswordField().sendKeys(password);
         registrationPage.getCaptchaBox().submit();
         registrationPage.getRegistrationButtonLocator().submit();
-        return new UserProfilePageSteps(driver);
+        return new UserProfilePageSteps();
     }
 
 

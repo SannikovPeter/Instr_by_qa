@@ -7,15 +7,15 @@ import steps.CartPageSteps;
 import steps.CatalogPageSteps;
 import steps.SearchPageSteps;
 
-public class CartTests extends TestsSettings {
+public class CartTests extends TestsConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(CartTests.class);
 
     private SearchPageSteps searchPageSteps;
     private CartPageSteps cartPageSteps;
     private CatalogPageSteps catalogPageSteps;
-    private String searchingItemName = "Пила циркулярная";
-    private int[] indexOfItems = {0, 5, 6};
+    private final String searchingItemName = "Пила циркулярная";
+    private final int[] indexOfItems = {0, 5, 6};
 
     @BeforeTest
     public void start() {

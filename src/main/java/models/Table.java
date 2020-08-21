@@ -9,9 +9,9 @@ public class Table {
     private static final By RowsLocator = By.tagName("tr");
     private static final By HeaderLocator = By.tagName("th");
     private static final By DataCellLocator = By.tagName("td");
-    private WebElement table;
+    private final WebElement table;
 
-    private List<WebElement> rowsList;
+    private final List<WebElement> rowsList;
 
     public Table(WebElement tableLocator) {
         table = tableLocator;

@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -20,10 +19,6 @@ public class RegistrationPage extends BasePage {
     private WebElement registrationButtonLocator;
     @FindBy(css = ".recaptcha-checkbox-border")
     private WebElement captchaBox;
-
-    public RegistrationPage(WebDriver driver) {
-        super(driver);
-    }
 
     @Override
     public String getURL() {

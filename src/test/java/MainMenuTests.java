@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import steps.CatalogPageSteps;
 import steps.ConstructionAndRepairBlogSteps;
 
-public class MainMenuTests extends TestsSettings {
+public class MainMenuTests extends TestsConfig {
 
     @AfterMethod
     public void endTest() {

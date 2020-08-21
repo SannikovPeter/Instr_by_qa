@@ -1,16 +1,17 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.WebDriver;
 import pageObjects.LoginPage;
 
 public class LoginPageSteps extends BasePageSteps {
-    private LoginPage loginPage;
-    private WebDriver driver;
+    private final LoginPage loginPage;
+    private final WebDriver driver;
 
-    public LoginPageSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        loginPage = new LoginPage(driver);
+    public LoginPageSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+        loginPage = new LoginPage();
     }
 
     private void login(String name, String password) {
@@ -21,12 +22,12 @@ public class LoginPageSteps extends BasePageSteps {
 
     public UserProfilePageSteps successLogin(String name, String password) {
         login(name, password);
-        return new UserProfilePageSteps(driver);
+        return new UserProfilePageSteps();
     }
 
     public LoginPageSteps unsuccessfulLogin(String name, String password) {
         login(name, password);
-        return new LoginPageSteps(driver);
+        return new LoginPageSteps();
     }
 
     @Override

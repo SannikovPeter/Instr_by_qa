@@ -1,7 +1,6 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchPage extends BasePage {
+
     private static final By catalogSearchInput = By.cssSelector(".inputbox");
     private static final By searchSubmitButton = By.cssSelector(".button");
-    private final static String correctURL = "";
 
     @FindBy(css = ".virtuemart_search")
     private WebElement catalogSearch;
@@ -20,8 +19,7 @@ public class SearchPage extends BasePage {
     private List<WebElement> itemsLocatorList;
     private List<Item> itemsList;
 
-    public SearchPage(WebDriver driver) {
-        super(driver);
+    public SearchPage() {
         createItemsList();
     }
 

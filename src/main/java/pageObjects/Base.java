@@ -1,14 +1,15 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.support.PageFactory;
 
 public class Base {
 
-    public Base(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
+    private final BrowserManager browserManager;
 
     public Base() {
+        browserManager = AppContext.getBean(BrowserManager.class);
+        PageFactory.initElements(browserManager.getDriver(), this);
     }
 }

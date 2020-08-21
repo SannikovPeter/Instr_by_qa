@@ -1,30 +1,31 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.WebDriver;
 import pageObjects.SearchPage;
 
 public class SearchPageSteps extends BasePageSteps {
-    private SearchPage searchPage;
-    private WebDriver driver;
+    private final SearchPage searchPage;
+    private final WebDriver driver;
 
-    public SearchPageSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        searchPage = new SearchPage(driver);
+    public SearchPageSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+        searchPage = new SearchPage();
     }
 
     public ItemSteps getItem(int indexOfItem) {
         moveTo(searchPage.getItemsList().get(indexOfItem).getItemLocator());
-        return new ItemSteps(driver, searchPage.getItemsList().get(indexOfItem));
+        return new ItemSteps(searchPage.getItemsList().get(indexOfItem));
     }
 
     public CatalogPageSteps continueShopping() {
         waitUntilBeClickableAndClick(searchPage.getContinueButton());
-        return new CatalogPageSteps(driver);
+        return new CatalogPageSteps();
     }
 
     public CartPageSteps getCartPage() {
         waitUntilBeClickableAndClick(searchPage.getPopUpShowCartButton());
-        return new CartPageSteps(driver);
+        return new CartPageSteps();
     }
 }

@@ -2,7 +2,6 @@ package pageObjects;
 
 import models.Table;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -13,17 +12,15 @@ public class CartPage extends BasePage {
     private static final int BASE_NUMBER_OF_TABLE_ROWS = 8;
     private static final String correctURL = "https://instr.by/catalog/cart";
     private static final By PriceLocator = By.cssSelector(".PricesalesPrice");
-
+    private final Table table;
     @FindBy(tagName = "tbody")
     private WebElement tableLocator;
-    private final Table table;
     @FindBy(css = ".PricebillTotal")
     private WebElement totalBillLocator;
     @FindAll(@FindBy(css = ".vm2-remove_from_cart"))
     private List<WebElement> removeItemButtons;
 
-    public CartPage(WebDriver driver) {
-        super(driver);
+    public CartPage() {
         table = new Table(tableLocator);
     }
 

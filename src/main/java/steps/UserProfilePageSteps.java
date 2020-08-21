@@ -1,17 +1,18 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.WebDriver;
 import pageObjects.UserProfilePage;
 
 public class UserProfilePageSteps extends BasePageSteps {
 
-    private UserProfilePage userProfilePage;
-    private WebDriver driver;
+    private final UserProfilePage userProfilePage;
+    private final WebDriver driver;
 
-    public UserProfilePageSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        userProfilePage = new UserProfilePage(driver);
+    public UserProfilePageSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+        userProfilePage = new UserProfilePage();
     }
 
     @Override

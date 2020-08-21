@@ -1,35 +1,24 @@
 package steps;
 
-import org.openqa.selenium.WebDriver;
 import pageObjects.MainMenu;
 
-import static pageObjects.MainMenu.*;
 import static pageObjects.MainMenu.MainMenuButtons.*;
 
 public class MainMenuSteps extends BasePageSteps {
-    private MainMenu mainMenu;
-    private WebDriver driver;
+    private final MainMenu mainMenu;
 
-
-    public MainMenuSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        mainMenu = new MainMenu(driver);
-    }
-
-    public <T> T open(MainMenuButtons button) {
-        waitUntilBeClickableAndClick(mainMenu.getButton(button));
-        return (T) this;
+    public MainMenuSteps() {
+        mainMenu = new MainMenu();
     }
 
     public MainPageSteps openMainPage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(MAIN_PAGE));
-        return new MainPageSteps(driver);
+        return new MainPageSteps();
     }
 
     public BlogPageSteps openBlogPage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(BLOG));
-        return new BlogPageSteps(driver);
+        return new BlogPageSteps();
     }
 
     private void openBlogDropDownMenu() {
@@ -39,43 +28,43 @@ public class MainMenuSteps extends BasePageSteps {
     public ConstructionAndRepairBlogSteps openBlogConstructionAndRepairPage() {
         openBlogDropDownMenu();
         waitUntilBeClickableAndClick(mainMenu.getButton(CONSTRUCTION_AND_REPAIR));
-        return new ConstructionAndRepairBlogSteps(driver);
+        return new ConstructionAndRepairBlogSteps();
     }
 
     public HuntingAndTourismSteps openHuntingAndTourismPage() {
         openBlogDropDownMenu();
         waitUntilBeClickableAndClick(mainMenu.getButton(HUNTING_AND_TOURISM));
-        return new HuntingAndTourismSteps(driver);
+        return new HuntingAndTourismSteps();
     }
 
     public InstrNewsPageSteps openInstrNewsPage() {
         openBlogDropDownMenu();
         waitUntilBeClickableAndClick(mainMenu.getButton(INSTR_NEWS));
-        return new InstrNewsPageSteps(driver);
+        return new InstrNewsPageSteps();
     }
 
     public CatalogPageSteps openCatalogPage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(CATALOG));
-        return new CatalogPageSteps(driver);
+        return new CatalogPageSteps();
     }
 
     public RentPageSteps openRentPage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(RENT));
-        return new RentPageSteps(driver);
+        return new RentPageSteps();
     }
 
     public ServicePageSteps openServicePage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(SERVICE));
-        return new ServicePageSteps(driver);
+        return new ServicePageSteps();
     }
 
     public AboutUsPageSteps openAboutUsPage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(ABOUT_US));
-        return new AboutUsPageSteps(driver);
+        return new AboutUsPageSteps();
     }
 
     public ContactsPageSteps openContactsPage() {
         waitUntilBeClickableAndClick(mainMenu.getButton(CONTACTS));
-        return new ContactsPageSteps(driver);
+        return new ContactsPageSteps();
     }
 }
