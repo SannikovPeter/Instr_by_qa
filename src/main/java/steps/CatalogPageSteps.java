@@ -1,16 +1,17 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.WebDriver;
 import pageObjects.CatalogPage;
 
 public class CatalogPageSteps extends BasePageSteps {
-    private CatalogPage catalogPage;
-    private WebDriver driver;
+    private final CatalogPage catalogPage;
+    private final WebDriver driver;
 
-    public CatalogPageSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        catalogPage = new CatalogPage(driver);
+    public CatalogPageSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+        catalogPage = new CatalogPage();
     }
 
     @Override

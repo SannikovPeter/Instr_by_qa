@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -18,10 +17,6 @@ public class LoginPage extends BasePage {
     private WebElement rememberMeBox;
     @FindBy(css = "button[type='submit']")
     private WebElement submitButton;
-
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
 
     public String getURL() {
         return uRL;

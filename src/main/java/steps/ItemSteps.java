@@ -1,15 +1,11 @@
 package steps;
 
-import org.openqa.selenium.WebDriver;
 import pageObjects.Item;
 
 public class ItemSteps extends BaseSteps {
-    private Item item;
-    private WebDriver driver;
+    private final Item item;
 
-    public ItemSteps(WebDriver driver, Item item) {
-        super(driver);
-        this.driver = driver;
+    public ItemSteps(Item item) {
         this.item = item;
     }
 
@@ -24,7 +20,7 @@ public class ItemSteps extends BaseSteps {
 
     public ItemPageSteps getItemPage() {
         item.getItemLocator().click();
-        return new ItemPageSteps(driver);
+        return new ItemPageSteps();
     }
 
     public String getItemName() {

@@ -8,8 +8,8 @@ public class Item extends Base {
     private final static By itemDescriptionLocator = By.cssSelector(".vm-product-descr-container-1");
     private final static By AddToCartButton = By.name("addtocart");
 
-    private WebElement itemLocator;
-    private WebElement itemDescription;
+    private final WebElement itemLocator;
+    private final WebElement itemDescription;
 
     public Item(WebElement itemLocator) {
         this.itemLocator = itemLocator;

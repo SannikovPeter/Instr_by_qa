@@ -4,7 +4,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steps.LoginPageSteps;
 
-public class InsertTests extends TestsSettings {
+public class InsertTests extends TestsConfig {
 
     private LoginPageSteps loginPageSteps;
 

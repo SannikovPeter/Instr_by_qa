@@ -1,16 +1,18 @@
 package pageObjects;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class MainMenu extends Base {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    public MainMenu(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
+    public MainMenu() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+
     }
 
     public WebElement getButton(MainMenuButtons button) {
@@ -29,7 +31,7 @@ public class MainMenu extends Base {
         HUNTING_AND_TOURISM("li[data-id ='135']"),
         INSTR_NEWS("li[data-id ='136']");
 
-        private String title;
+        private final String title;
 
         MainMenuButtons(String title) {
             this.title = title;

@@ -1,16 +1,17 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.WebDriver;
 import pageObjects.ConstructionAndRepairBlogPage;
 
 public class ConstructionAndRepairBlogSteps extends BasePageSteps {
-    private ConstructionAndRepairBlogPage page;
-    private WebDriver driver;
+    private final ConstructionAndRepairBlogPage page;
+    private final WebDriver driver;
 
-    public ConstructionAndRepairBlogSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        page = new ConstructionAndRepairBlogPage(driver);
+    public ConstructionAndRepairBlogSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+        page = new ConstructionAndRepairBlogPage();
     }
 
     @Override

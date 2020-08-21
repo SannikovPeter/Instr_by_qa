@@ -1,5 +1,7 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,12 +15,12 @@ public class BaseSteps {
 
     private static final int DEFAULT_TIME = 10;
 
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private Actions actions;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
+    private final Actions actions;
 
-    public BaseSteps(WebDriver driver) {
-        this.driver = driver;
+    public BaseSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIME));
         actions = new Actions(driver);
     }

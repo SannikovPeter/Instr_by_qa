@@ -1,5 +1,7 @@
 package steps;
 
+import core.AppContext;
+import core.BrowserManager;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -12,13 +14,12 @@ public class BasePageSteps extends BaseSteps {
     private static final Logger logger = LoggerFactory.getLogger(BasePageSteps.class);
 
     private static final String Cart_is_empty = "Корзина пуста";
-    private BasePage basePage;
-    private WebDriver driver;
+    private final BasePage basePage;
+    private final WebDriver driver;
 
-    public BasePageSteps(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
-        basePage = new BasePage(driver);
+    public BasePageSteps() {
+        driver = AppContext.getBean(BrowserManager.class).getDriver();
+        basePage = new BasePage();
     }
 
     public boolean isPageCorrect() {
@@ -27,33 +28,33 @@ public class BasePageSteps extends BaseSteps {
 
     public LoginPageSteps openLoginPage() {
         basePage.getInsertButton().click();
-        return new LoginPageSteps(driver);
+        return new LoginPageSteps();
     }
 
     public MainPageSteps exit() {
         basePage.getExitButton().click();
-        return new MainPageSteps(driver);
+        return new MainPageSteps();
     }
 
     public RegistrationPageSteps getRegistrationPageSteps() {
         basePage.getRegistrationButton().click();
-        return new RegistrationPageSteps(driver);
+        return new RegistrationPageSteps();
     }
 
     public MainPageSteps backToMainPage() {
         basePage.getLogoButton().click();
-        return new MainPageSteps(driver);
+        return new MainPageSteps();
     }
 
     public SearchPageSteps search(String searchItem) {
         basePage.getFastSearchBar().sendKeys(searchItem + Keys.ENTER);
-        return new SearchPageSteps(driver);
+        return new SearchPageSteps();
     }
 
     public CartPageSteps openCartPage() {
         basePage.getFastCartButton().click();
         basePage.getDropDownShowCartButton().click();
-        return new CartPageSteps(driver);
+        return new CartPageSteps();
     }
 
     private boolean isCartEmpty() {
@@ -84,7 +85,7 @@ public class BasePageSteps extends BaseSteps {
     }
 
     public MainMenuSteps getMainMenuSteps() {
-        return new MainMenuSteps(driver);
+        return new MainMenuSteps();
     }
 
 }

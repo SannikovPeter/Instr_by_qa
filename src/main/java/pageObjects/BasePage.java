@@ -1,7 +1,6 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -33,10 +32,6 @@ public class BasePage extends Base {
     private WebElement totalProductsLocator;
     @FindBy(css = ".item-697")
     private WebElement exitButton;
-
-    public BasePage(WebDriver driver) {
-        super(driver);
-    }
 
     public String getURL() {
         return correctURL;
