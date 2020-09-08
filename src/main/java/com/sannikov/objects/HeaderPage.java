@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BasePage extends AbstractBase {
+public class HeaderPage extends AbstractBase {
 
     private String correctURL;
 
@@ -16,19 +16,17 @@ public class BasePage extends AbstractBase {
     private WebElement registrationButton;
     @FindBy(css = ".logo-img")
     private WebElement logoButton;
-    @FindBy(id = "mod_virtuemart_search")
+    @FindBy(css = "#mod_virtuemart_search")
     private WebElement fastSearchBar;
-    @FindBy(id = "head-cart-dropdown")
+    @FindBy(css = "#head-cart-dropdown")
     private WebElement fastCartButton;
     @FindBy(css = ".show_cart")
     private WebElement dropDownShowCartButton;
-    @FindBy(css = ".continue_link")
-    private WebElement continueButton;
     @FindBy(css = ".total-container")
     private WebElement fastCartTotalBar;
     @FindBy(css = ".showcart")
     private WebElement popUpShowCartButton;
-    @FindBy(id = "fancybox-close")
+    @FindBy(css = "#fancybox-close")
     private WebElement closePopUpMenuButton;
     @FindBy(css = ".total_products")
     private WebElement totalProductsLocator;
@@ -65,10 +63,6 @@ public class BasePage extends AbstractBase {
 
     public WebElement getPopUpShowCartButton() {
         return popUpShowCartButton;
-    }
-
-    public WebElement getContinueButton() {
-        return continueButton;
     }
 
     public WebElement getFastCartTotalBar() {

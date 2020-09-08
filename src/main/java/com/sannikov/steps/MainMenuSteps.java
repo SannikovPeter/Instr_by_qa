@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import static com.sannikov.objects.MainMenu.MainMenuButtons.*;
 
 @Component
-public class MainMenuSteps extends BasePageSteps {
+public class MainMenuSteps extends BaseSteps {
     private static final ThreadLocal<MainMenu> MAIN_MENU_THREAD_LOCAL = new ThreadLocal<>();
 
     private MainMenu getMainMenu() {

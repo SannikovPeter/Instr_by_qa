@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RegistrationPage extends BasePage {
+public class RegistrationPage extends HeaderPage {
     private final static String correctURL = "https://instr.by/uchetnaya-zapis";
     @FindBy(id = "email_field")
     private WebElement emailField;

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class CartPage extends BasePage {
+public class CartPage extends HeaderPage {
 
     private static final int BASE_NUMBER_OF_TABLE_ROWS = 8;
     private static final String correctURL = "https://instr.by/catalog/cart";

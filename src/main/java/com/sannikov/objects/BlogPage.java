@@ -3,7 +3,7 @@ package com.sannikov.objects;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BlogPage extends BasePage {
+public class BlogPage extends HeaderPage {
     private final static String correctURL = "https://instr.by/blog";
 
     @Override

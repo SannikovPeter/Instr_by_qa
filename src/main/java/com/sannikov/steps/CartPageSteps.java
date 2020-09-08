@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CartPageSteps extends BasePageSteps {
+public class CartPageSteps extends BaseSteps {
 
     private static final Logger logger = LoggerFactory.getLogger(CartPageSteps.class);
 

@@ -12,13 +12,13 @@ public class InsertTests extends TestsConfig {
 
     @BeforeMethod
     public void checkLogOut() {
-        mainPageSteps.logOutIfItNecessary();
-        loginPageSteps = mainPageSteps.goToLoginPage();
+        mainPageSteps.getHeader().logOutIfItNecessary();
+        loginPageSteps = mainPageSteps.getHeader().goToLoginPage();
     }
 
     @AfterMethod
     public void endTest() {
-        mainPageSteps.backToMainPage();
+        mainPageSteps.getHeader().backToMainPage();
     }
 
 

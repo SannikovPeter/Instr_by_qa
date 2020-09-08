@@ -4,7 +4,7 @@ import com.sannikov.objects.BlogPage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BlogPageSteps extends BasePageSteps {
+public class BlogPageSteps extends BaseSteps {
 
     private static final ThreadLocal<BlogPage> BLOG_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 

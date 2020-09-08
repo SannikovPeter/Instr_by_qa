@@ -11,7 +11,7 @@ public class SearchTests extends TestsConfig {
 
     @BeforeClass
     public void start() {
-        mainPageSteps.goToLoginPage().successLogin(loginName, loginPassword).backToMainPage();
+        mainPageSteps.getHeader().goToLoginPage().successLogin(loginName, loginPassword).getHeader().backToMainPage();
     }
 
     @Test
@@ -20,7 +20,7 @@ public class SearchTests extends TestsConfig {
         String actualItemName;
         int firstItem = 0;
 
-        searchPageSteps = mainPageSteps.search(searchItem);
+        searchPageSteps = mainPageSteps.getHeader().search(searchItem);
         actualItemName = searchPageSteps.getItem(firstItem).getItemName();
         Assert.assertTrue(actualItemName.contains(searchItem.toUpperCase()), "Search item is not first");
     }

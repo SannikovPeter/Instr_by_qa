@@ -3,6 +3,7 @@ package com.sannikov.steps;
 import com.sannikov.core.AppContext;
 import com.sannikov.core.BrowserManager;
 import com.sannikov.objects.AbstractBase;
+import com.sannikov.objects.HeaderPage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,11 +21,15 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class BaseSteps {
 
-    private static final Logger logger = LoggerFactory.getLogger(BaseSteps.class);
     public static final int WAITING_TIME = 5;
+    private static final Logger logger = LoggerFactory.getLogger(BaseSteps.class);
 
     public static WebDriver getDriver() {
         return AppContext.getBean(BrowserManager.class).getDriver();
+    }
+
+    public boolean isPageCorrect() {
+        return false;
     }
 
     private void waitUntilBeClickable(WebElement webElement) {
@@ -77,9 +82,14 @@ public class BaseSteps {
         return result;
     }
 
-
     public void scrollWindow(int y) {
         ((JavascriptExecutor) AbstractBase.getDriver()).executeScript("window.scrollBy(" + 0 + ","
                 + y + ");");
+    }
+
+    public HeaderSteps getHeader() {
+        HeaderSteps headerSteps = AppContext.getBean(HeaderSteps.class);
+        headerSteps.setHeaderPage(AbstractBase.getPage(HeaderPage.class));
+        return headerSteps;
     }
 }

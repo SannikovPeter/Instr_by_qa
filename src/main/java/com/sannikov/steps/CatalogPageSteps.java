@@ -5,7 +5,7 @@ import com.sannikov.objects.CatalogPage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CatalogPageSteps extends BasePageSteps {
+public class CatalogPageSteps extends BaseSteps {
     private static final ThreadLocal<CatalogPage> CATALOG_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
     private CatalogPage getCatalogPage() {

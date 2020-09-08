@@ -1,16 +1,16 @@
 package com.sannikov;
 
+import com.sannikov.steps.CatalogPageSteps;
+import com.sannikov.steps.ConstructionAndRepairBlogSteps;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
-import com.sannikov.steps.CatalogPageSteps;
-import com.sannikov.steps.ConstructionAndRepairBlogSteps;
 
 public class MainMenuTests extends TestsConfig {
 
     @AfterMethod
     public void endTest() {
-        mainPageSteps.backToMainPage();
+        mainPageSteps.getHeader().backToMainPage();
     }
 
     @Test
@@ -18,6 +18,7 @@ public class MainMenuTests extends TestsConfig {
 
         ConstructionAndRepairBlogSteps constructionAndRepairBlogSteps;
         constructionAndRepairBlogSteps = mainPageSteps
+                .getHeader()
                 .getMainMenuSteps()
                 .openBlogConstructionAndRepairPage();
         Assert.assertTrue(constructionAndRepairBlogSteps.isPageCorrect());
@@ -27,6 +28,7 @@ public class MainMenuTests extends TestsConfig {
     public void catalogButtonTest() {
         CatalogPageSteps catalogPageSteps;
         catalogPageSteps = mainPageSteps
+                .getHeader()
                 .getMainMenuSteps()
                 .openCatalogPage();
         Assert.assertTrue(catalogPageSteps.isPageCorrect());

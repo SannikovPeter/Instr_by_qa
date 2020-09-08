@@ -1,39 +1,35 @@
 package com.sannikov.steps;
 
-import com.sannikov.objects.*;
 import com.sannikov.core.AppContext;
+import com.sannikov.objects.*;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BasePageSteps extends BaseSteps {
+public class HeaderSteps extends BaseSteps {
 
-    private static final Logger logger = LoggerFactory.getLogger(BasePageSteps.class);
+    private static final Logger logger = LoggerFactory.getLogger(HeaderSteps.class);
 
     private static final String Cart_is_empty = "Корзина пуста";
 
-    private static final ThreadLocal<BasePage> BASE_PAGE_THREAD_LOCAL = new ThreadLocal<>();
+    private static final ThreadLocal<HeaderPage> HEADER_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
-    private BasePage getBasePage() {
-        return BASE_PAGE_THREAD_LOCAL.get();
+    private HeaderPage getHeaderPage() {
+        return HEADER_PAGE_THREAD_LOCAL.get();
     }
 
-    public void setBasePage(BasePage basePage) {
-        BASE_PAGE_THREAD_LOCAL.set(basePage);
-    }
-
-    public void start() {
-        setBasePage(AbstractBase.getPage(BasePage.class));
+    public void setHeaderPage(HeaderPage headerPage) {
+        HEADER_PAGE_THREAD_LOCAL.set(headerPage);
     }
 
     public boolean isPageCorrect() {
-        return getBasePage().getURL().equals(AbstractBase.getDriver().getCurrentUrl());
+        return getHeaderPage().getURL().equals(AbstractBase.getDriver().getCurrentUrl());
     }
 
     public LoginPageSteps goToLoginPage() {
-        getBasePage().getInsertButton().click();
+        getHeaderPage().getInsertButton().click();
         LoginPageSteps loginPageSteps = AppContext.getBean(LoginPageSteps.class);
         loginPageSteps.setLoginPage(AbstractBase.getPage(LoginPage.class));
         return loginPageSteps;
@@ -42,43 +38,43 @@ public class BasePageSteps extends BaseSteps {
     public MainPageSteps exit() {
         MainPageSteps mainPageSteps = AppContext.getBean(MainPageSteps.class);
         mainPageSteps.setMainPage(AbstractBase.getPage(MainPage.class));
-        getBasePage().getExitButton().click();
+        getHeaderPage().getExitButton().click();
         return mainPageSteps;
     }
 
     public RegistrationPageSteps getRegistrationPageSteps() {
         RegistrationPageSteps registrationPageSteps = AppContext.getBean(RegistrationPageSteps.class);
         registrationPageSteps.setRegistrationPage(AbstractBase.getPage(RegistrationPage.class));
-        getBasePage().getRegistrationButton().click();
+        getHeaderPage().getRegistrationButton().click();
         return registrationPageSteps;
     }
 
     public MainPageSteps backToMainPage() {
         MainPageSteps mainPageSteps = AppContext.getBean(MainPageSteps.class);
         mainPageSteps.setMainPage(AbstractBase.getPage(MainPage.class));
-        getBasePage().getLogoButton().click();
+        getHeaderPage().getLogoButton().click();
         return mainPageSteps;
     }
 
     public SearchPageSteps search(String searchItem) {
         SearchPageSteps searchPageSteps = AppContext.getBean(SearchPageSteps.class);
         searchPageSteps.setSearchPage(AbstractBase.getPage(SearchPage.class));
-        getBasePage().getFastSearchBar().sendKeys(searchItem + Keys.ENTER);
+        getHeaderPage().getFastSearchBar().sendKeys(searchItem + Keys.ENTER);
         return searchPageSteps;
     }
 
     public CartPageSteps openCartPage() {
         CartPageSteps cartPageSteps = AppContext.getBean(CartPageSteps.class);
         cartPageSteps.setCartPage(AbstractBase.getPage(CartPage.class));
-        getBasePage().getFastCartButton().click();
-        getBasePage().getDropDownShowCartButton().click();
+        getHeaderPage().getFastCartButton().click();
+        getHeaderPage().getDropDownShowCartButton().click();
         return cartPageSteps;
     }
 
     private boolean isCartEmpty() {
-        getBasePage().getFastCartButton().click();
-        boolean result = getBasePage().getTotalProductsLocator().getText().contains(Cart_is_empty);
-        getBasePage().getFastCartButton().click();
+        getHeaderPage().getFastCartButton().click();
+        boolean result = getHeaderPage().getTotalProductsLocator().getText().contains(Cart_is_empty);
+        getHeaderPage().getFastCartButton().click();
         return result;
     }
 
@@ -93,11 +89,10 @@ public class BasePageSteps extends BaseSteps {
     }
 
     public void logOutIfItNecessary() {
-        if (isExistsReturnWebElement(getBasePage().getExitButton()) !=null) {
-            getBasePage().getExitButton().click();
+        if (isExistsReturnWebElement(getHeaderPage().getExitButton()) != null) {
+            getHeaderPage().getExitButton().click();
         } else logger.info("User has been log in");
     }
-
 
     public MainMenuSteps getMainMenuSteps() {
         MainMenuSteps mainMenuSteps = AppContext.getBean(MainMenuSteps.class);

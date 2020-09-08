@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ItemPage extends BasePage {
+public class ItemPage extends HeaderPage {
 
     @FindBy(name = "addtocart")
     private WebElement addToCartButton;

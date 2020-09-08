@@ -10,7 +10,8 @@ import org.springframework.context.annotation.Configuration;
 public class ContextConfig {
 
     private static final Logger logger = LoggerFactory.getLogger(ContextConfig.class);
-    public ContextConfig(){
+
+    public ContextConfig() {
         logger.info("Context is loaded");
     }
 }

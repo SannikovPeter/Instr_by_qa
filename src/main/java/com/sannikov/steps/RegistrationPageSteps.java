@@ -1,13 +1,13 @@
 package com.sannikov.steps;
 
+import com.sannikov.core.AppContext;
 import com.sannikov.objects.AbstractBase;
 import com.sannikov.objects.RegistrationPage;
 import com.sannikov.objects.UserProfilePage;
 import org.springframework.stereotype.Component;
-import com.sannikov.core.AppContext;
 
 @Component
-public class RegistrationPageSteps extends BasePageSteps {
+public class RegistrationPageSteps extends BaseSteps {
     private static final ThreadLocal<RegistrationPage> REGISTRATION_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
     private RegistrationPage getRegistrationPage() {

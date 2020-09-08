@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserProfilePage extends BasePage {
+public class UserProfilePage extends HeaderPage {
 
     private final static String url = "https://instr.by/create-an-account/profile";
 

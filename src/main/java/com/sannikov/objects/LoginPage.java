@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LoginPage extends BasePage {
+public class LoginPage extends HeaderPage {
 
     private final static String uRL = "https://instr.by/sign-in";
 

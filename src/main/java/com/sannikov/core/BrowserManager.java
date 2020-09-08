@@ -13,12 +13,9 @@ import java.util.concurrent.TimeUnit;
 public class BrowserManager {
 
     private static final Logger logger = LoggerFactory.getLogger(BrowserManager.class);
-
+    private static final int WAITING_TIME = 10;
     @Autowired
     private PropertiesManager propertiesManager;
-
-    private static final int WAITING_TIME = 10;
-
     private WebDriver driver;
 
     public void startBrowser() {

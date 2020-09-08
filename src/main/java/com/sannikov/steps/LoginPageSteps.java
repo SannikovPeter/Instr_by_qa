@@ -7,7 +7,7 @@ import com.sannikov.objects.UserProfilePage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LoginPageSteps extends BasePageSteps {
+public class LoginPageSteps extends BaseSteps {
 
     private static final ThreadLocal<LoginPage> LOGIN_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
@@ -39,7 +39,6 @@ public class LoginPageSteps extends BasePageSteps {
         return loginPageSteps;
     }
 
-    @Override
     public boolean isPageCorrect() {
         return getLoginPage().getURL().equals(AbstractBase.getDriver().getCurrentUrl());
     }

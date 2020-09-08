@@ -21,11 +21,10 @@ public class TestsConfig extends AbstractTestNGSpringContextTests {
     protected BrowserManager browserManager;
     @Autowired
     protected MainPageSteps mainPageSteps;
-    @Autowired
-    private PropertiesManager propertiesManager;
-
     protected String loginName;
     protected String loginPassword;
+    @Autowired
+    private PropertiesManager propertiesManager;
 
     @BeforeClass
     public void webSettings() {

@@ -5,7 +5,7 @@ import com.sannikov.objects.ConstructionAndRepairBlogPage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConstructionAndRepairBlogSteps extends BasePageSteps {
+public class ConstructionAndRepairBlogSteps extends BaseSteps {
 
     private static final ThreadLocal<ConstructionAndRepairBlogPage> CONSTRUCTION_AND_REPAIR_BLOG_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
@@ -17,7 +17,6 @@ public class ConstructionAndRepairBlogSteps extends BasePageSteps {
         CONSTRUCTION_AND_REPAIR_BLOG_PAGE_THREAD_LOCAL.set(constructionAndRepairBlogPage);
     }
 
-    @Override
     public boolean isPageCorrect() {
         return getConstructionAndRepairBlogPage().getURL().equals(AbstractBase.getDriver().getCurrentUrl());
     }

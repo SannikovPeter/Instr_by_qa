@@ -4,7 +4,7 @@ import com.sannikov.objects.ContactsPage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ContactsPageSteps extends BasePageSteps {
+public class ContactsPageSteps extends BaseSteps {
     private static final ThreadLocal<ContactsPage> CONTACTS_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
     private ContactsPage getContactsPage() {

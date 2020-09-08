@@ -4,7 +4,7 @@ import com.sannikov.objects.RentPage;
 import org.springframework.stereotype.Component;
 
 @Component
-public class RentPageSteps extends BasePageSteps {
+public class RentPageSteps extends BaseSteps {
     private static final ThreadLocal<RentPage> RENT_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
     private RentPage getRentPage() {

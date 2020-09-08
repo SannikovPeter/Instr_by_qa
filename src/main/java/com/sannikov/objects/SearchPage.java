@@ -9,10 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class SearchPage extends BasePage {
+public class SearchPage extends HeaderPage {
 
     @FindAll(@FindBy(css = ".isotope-item"))
     private List<WebElement> itemsLocatorList;
+    @FindBy(css = ".continue_link")
+    private WebElement continueButton;
 
     public List<Item> getItemsList() {
         List<Item> result = new ArrayList<>();
@@ -20,5 +22,9 @@ public class SearchPage extends BasePage {
             result.add(new Item(itemLocator));
         }
         return result;
+    }
+
+    public WebElement getContinueButton() {
+        return continueButton;
     }
 }
