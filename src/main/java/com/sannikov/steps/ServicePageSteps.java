@@ -1,6 +1,6 @@
 package com.sannikov.steps;
 
-import com.sannikov.objects.ServicePage;
+import com.sannikov.objects.pages.ServicePage;
 import org.springframework.stereotype.Component;
 
 @Component

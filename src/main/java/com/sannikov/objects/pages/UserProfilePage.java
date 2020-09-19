@@ -1,11 +1,14 @@
-package com.sannikov.objects;
+package com.sannikov.objects.pages;
 
+import com.sannikov.objects.AbstractBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
+import ru.yandex.qatools.htmlelements.annotations.Block;
 
 @Component
-public class UserProfilePage extends HeaderPage {
+@Block(@FindBy(css = "body"))
+public class UserProfilePage extends AbstractBase {
 
     private final static String url = "https://instr.by/create-an-account/profile";
 

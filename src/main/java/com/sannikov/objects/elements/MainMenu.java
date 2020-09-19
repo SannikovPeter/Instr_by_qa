@@ -1,10 +1,14 @@
-package com.sannikov.objects;
+package com.sannikov.objects.elements;
 
+import com.sannikov.objects.AbstractBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
+import ru.yandex.qatools.htmlelements.annotations.Block;
 
 @Component
+@Block(@FindBy(css = "#t3-mainnav"))
 public class MainMenu extends AbstractBase {
 
     public WebElement getButton(MainMenuButtons button) {

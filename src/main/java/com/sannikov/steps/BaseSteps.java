@@ -3,7 +3,7 @@ package com.sannikov.steps;
 import com.sannikov.core.AppContext;
 import com.sannikov.core.BrowserManager;
 import com.sannikov.objects.AbstractBase;
-import com.sannikov.objects.HeaderPage;
+import com.sannikov.objects.elements.Header;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -33,12 +33,12 @@ public class BaseSteps {
     }
 
     private void waitUntilBeClickable(WebElement webElement) {
-        WebDriverWait wait = new WebDriverWait(AbstractBase.getDriver(), Duration.ofSeconds(WAITING_TIME));
+        WebDriverWait wait = new WebDriverWait(AbstractBase.getDriver(), WAITING_TIME);
         wait.until(ExpectedConditions.elementToBeClickable(webElement));
     }
 
     private void waitUntilBeVisible(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(AbstractBase.getDriver(), Duration.ofSeconds(WAITING_TIME));
+        WebDriverWait wait = new WebDriverWait(AbstractBase.getDriver(), WAITING_TIME);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -66,7 +66,7 @@ public class BaseSteps {
     public <T extends WebElement> T isExistsReturnWebElement(T element) {
         T result;
         getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Wait<WebDriver> wait = new FluentWait<>(getDriver()).withTimeout(Duration.ofSeconds(WAITING_TIME));
+        Wait<WebDriver> wait = new FluentWait<>(getDriver()).withTimeout(WAITING_TIME, TimeUnit.SECONDS);
         Instant startTime = Instant.now();
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
@@ -89,7 +89,7 @@ public class BaseSteps {
 
     public HeaderSteps getHeader() {
         HeaderSteps headerSteps = AppContext.getBean(HeaderSteps.class);
-        headerSteps.setHeaderPage(AbstractBase.getPage(HeaderPage.class));
+        headerSteps.setHeaderPage(AbstractBase.getPage(Header.class));
         return headerSteps;
     }
 }

@@ -1,6 +1,6 @@
 package com.sannikov.steps;
 
-import com.sannikov.objects.Item;
+import com.sannikov.objects.elements.Item;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +18,7 @@ public class ItemSteps extends BaseSteps {
 
     public void addItemToCart() {
         try {
-            moveTo(getItem().getItemLocator());
+            moveTo(getItem().getWrappedElement());
             saveClick(getItem().getAddToCartButton());
         } catch (Exception e) {
             scrollWindow(100);
@@ -27,6 +27,6 @@ public class ItemSteps extends BaseSteps {
     }
 
     public String getItemName() {
-        return getItem().getName().getText();
+        return getItem().getName();
     }
 }

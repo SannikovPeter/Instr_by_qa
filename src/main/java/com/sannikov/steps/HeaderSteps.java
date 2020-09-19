@@ -1,7 +1,10 @@
 package com.sannikov.steps;
 
 import com.sannikov.core.AppContext;
-import com.sannikov.objects.*;
+import com.sannikov.objects.AbstractBase;
+import com.sannikov.objects.elements.Header;
+import com.sannikov.objects.elements.MainMenu;
+import com.sannikov.objects.pages.*;
 import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,14 +17,14 @@ public class HeaderSteps extends BaseSteps {
 
     private static final String Cart_is_empty = "Корзина пуста";
 
-    private static final ThreadLocal<HeaderPage> HEADER_PAGE_THREAD_LOCAL = new ThreadLocal<>();
+    private static final ThreadLocal<Header> HEADER_PAGE_THREAD_LOCAL = new ThreadLocal<>();
 
-    private HeaderPage getHeaderPage() {
+    private Header getHeaderPage() {
         return HEADER_PAGE_THREAD_LOCAL.get();
     }
 
-    public void setHeaderPage(HeaderPage headerPage) {
-        HEADER_PAGE_THREAD_LOCAL.set(headerPage);
+    public void setHeaderPage(Header header) {
+        HEADER_PAGE_THREAD_LOCAL.set(header);
     }
 
     public boolean isPageCorrect() {

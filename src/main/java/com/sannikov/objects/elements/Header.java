@@ -1,14 +1,15 @@
-package com.sannikov.objects;
+package com.sannikov.objects.elements;
 
+import com.sannikov.objects.AbstractBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
+import ru.yandex.qatools.htmlelements.annotations.Block;
 
 @Component
-public class HeaderPage extends AbstractBase {
-
-    private String correctURL;
+@Block(@FindBy(css = "body"))
+public class Header extends AbstractBase {
 
     @FindBy(css = ".item-121")
     private WebElement insertButton;
@@ -32,10 +33,6 @@ public class HeaderPage extends AbstractBase {
     private WebElement totalProductsLocator;
     @FindBy(css = ".item-697")
     private WebElement exitButton;
-
-    public String getURL() {
-        return correctURL;
-    }
 
     public WebElement getInsertButton() {
         return insertButton;

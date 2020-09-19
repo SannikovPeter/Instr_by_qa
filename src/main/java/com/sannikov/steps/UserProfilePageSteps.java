@@ -1,7 +1,7 @@
 package com.sannikov.steps;
 
 import com.sannikov.objects.AbstractBase;
-import com.sannikov.objects.UserProfilePage;
+import com.sannikov.objects.pages.UserProfilePage;
 import org.springframework.stereotype.Component;
 
 @Component

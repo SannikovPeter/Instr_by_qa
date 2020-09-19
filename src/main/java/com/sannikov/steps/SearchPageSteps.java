@@ -2,9 +2,9 @@ package com.sannikov.steps;
 
 import com.sannikov.core.AppContext;
 import com.sannikov.objects.AbstractBase;
-import com.sannikov.objects.CartPage;
-import com.sannikov.objects.CatalogPage;
-import com.sannikov.objects.SearchPage;
+import com.sannikov.objects.pages.CartPage;
+import com.sannikov.objects.pages.CatalogPage;
+import com.sannikov.objects.pages.SearchPage;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,7 +30,7 @@ public class SearchPageSteps extends BaseSteps {
         addItemToCart(indexOfItem);
         CatalogPageSteps catalogPageSteps = AppContext.getBean(CatalogPageSteps.class);
         catalogPageSteps.setCatalogPage(AbstractBase.getPage(CatalogPage.class));
-        saveClick(getSearchPage().getContinueButton());
+        saveClick(getSearchPage().getPopUp().getContinueButton());
         return catalogPageSteps;
     }
 
@@ -38,7 +38,7 @@ public class SearchPageSteps extends BaseSteps {
         addItemToCart(indexOfItem);
         CartPageSteps cartPageSteps = AppContext.getBean(CartPageSteps.class);
         cartPageSteps.setCartPage(AbstractBase.getPage(CartPage.class));
-        saveClick(getSearchPage().getPopUpShowCartButton());
+        saveClick(getSearchPage().getHeader().getPopUpShowCartButton());
         return cartPageSteps;
     }
 

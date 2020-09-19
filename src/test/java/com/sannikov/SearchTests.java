@@ -2,6 +2,7 @@ package com.sannikov;
 
 import com.sannikov.steps.SearchPageSteps;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,5 +24,11 @@ public class SearchTests extends TestsConfig {
         searchPageSteps = mainPageSteps.getHeader().search(searchItem);
         actualItemName = searchPageSteps.getItem(firstItem).getItemName();
         Assert.assertTrue(actualItemName.contains(searchItem.toUpperCase()), "Search item is not first");
+        //разобраться
+    }
+
+    @AfterClass(alwaysRun= true)
+    public void endSearchTest(){
+        browserManager.closeBrowser();
     }
 }

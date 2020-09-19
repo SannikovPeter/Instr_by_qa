@@ -3,6 +3,7 @@ package com.sannikov;
 import com.sannikov.steps.CartPageSteps;
 import com.sannikov.steps.SearchPageSteps;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -63,4 +64,11 @@ public class CartTests extends TestsConfig {
                     .backToMainPage();
         }
     }
+
+    @AfterClass(alwaysRun= true)
+    public void endCartTest(){
+        browserManager.closeBrowser();
+    }
+
+
 }

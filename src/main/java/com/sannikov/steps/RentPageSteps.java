@@ -1,6 +1,6 @@
 package com.sannikov.steps;
 
-import com.sannikov.objects.RentPage;
+import com.sannikov.objects.pages.RentPage;
 import org.springframework.stereotype.Component;
 
 @Component

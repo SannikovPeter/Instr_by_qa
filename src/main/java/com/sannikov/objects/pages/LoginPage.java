@@ -1,11 +1,14 @@
-package com.sannikov.objects;
+package com.sannikov.objects.pages;
 
+import com.sannikov.objects.AbstractBase;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.springframework.stereotype.Component;
+import ru.yandex.qatools.htmlelements.annotations.Block;
 
 @Component
-public class LoginPage extends HeaderPage {
+@Block(@FindBy(css = "body"))
+public class LoginPage extends AbstractBase {
 
     private final static String uRL = "https://instr.by/sign-in";
 

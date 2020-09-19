@@ -2,7 +2,7 @@ package com.sannikov.steps;
 
 import com.sannikov.core.AppContext;
 import com.sannikov.objects.AbstractBase;
-import com.sannikov.objects.CartPage;
+import com.sannikov.objects.pages.CartPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -30,11 +30,10 @@ public class CartPageSteps extends BaseSteps {
         double result = stringPriceToDouble(getCartPage().getTotalBillLocator().getText());
         logger.info("totalBill is: " + result);
         return result;
-
     }
 
     public double getItemPrice(int indexOfItem) {
-        return stringPriceToDouble(getCartPage().getItemTotalLocator(indexOfItem).getText());
+        return stringPriceToDouble(getCartPage().getItemTotalPriceLocator(indexOfItem).getText());
     }
 
     public double getSumOfItemPrices() {

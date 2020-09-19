@@ -1,6 +1,6 @@
 package com.sannikov.steps;
 
-import com.sannikov.objects.HuntingAndTourismPage;
+import com.sannikov.objects.pages.HuntingAndTourismPage;
 import org.springframework.stereotype.Component;
 
 @Component

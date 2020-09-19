@@ -1,6 +1,6 @@
 package com.sannikov.steps;
 
-import com.sannikov.objects.InstrNewsPage;
+import com.sannikov.objects.pages.InstrNewsPage;
 import org.springframework.stereotype.Component;
 
 @Component
