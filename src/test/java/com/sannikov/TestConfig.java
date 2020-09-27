@@ -9,22 +9,23 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 @ContextConfiguration(classes = ContextConfig.class)
-public class TestsConfig extends AbstractTestNGSpringContextTests {
+public class TestConfig extends AbstractTestNGSpringContextTests {
 
-    private static final Logger logger = LoggerFactory.getLogger(TestsConfig.class);
+    private static final Logger logger = LoggerFactory.getLogger(TestConfig.class);
 
     @Autowired
     protected BrowserManager browserManager;
     @Autowired
     protected MainPageSteps mainPageSteps;
-    protected String loginName;
-    protected String loginPassword;
     @Autowired
     private PropertiesManager propertiesManager;
+    protected String loginName;
+    protected String loginPassword;
+
 
     @BeforeClass
     public void webSettings() {
@@ -35,7 +36,7 @@ public class TestsConfig extends AbstractTestNGSpringContextTests {
         logger.info("BeforeClass is finish");
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void endOfTest() {
         browserManager.closeBrowser();
     }

@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-public class MainMenuTests extends TestsConfig {
+public class MainMenuTest extends TestConfig {
 
     @AfterMethod(alwaysRun= true)
     public void endTest() {

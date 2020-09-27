@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class CartTests extends TestsConfig {
+public class CartTest extends TestConfig {
 
     public static final String SEARCHING_ITEM = "Пила циркулярная";
     private final int[] indexOfItems = {0, 5, 6};
